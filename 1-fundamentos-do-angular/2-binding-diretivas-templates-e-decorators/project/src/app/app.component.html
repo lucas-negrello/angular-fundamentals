@@ -1,0 +1,27 @@
+<input
+  [type]="type" id="meu-input"
+  [value]="inputText"
+  [disabled]="isDisabled"
+  [attr.title]="'Insira o título'"
+  (keyup)="handleKeyUp($event)"
+  (input)="handleInput($event)"
+>
+
+<br>
+
+<button (click)="enableInput()">Habilitar</button>
+<button (click)="disableInput()">Desabilitar</button>
+
+<br>
+
+<button (click)="textType()">Text</button>
+<button (click)="passwordType()">Password</button>
+
+<br>
+
+<button (click)="value1()">Value 1</button>
+<button (click)="value2()">Value 2</button>
+
+<br>
+
+<button (click)="log()">Log Input text</button>

@@ -1,0 +1,21 @@
+.button{
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 25px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+
+  &--white{
+    background-color: white;
+    color: black;
+  }
+
+  &--purple{
+    background-color: purple;
+    color: white;
+  }
+}

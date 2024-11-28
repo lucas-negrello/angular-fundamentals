@@ -1,0 +1,10 @@
+
+// Afect the card components
+.card, .card-roxo{
+  border-radius: 10px !important;
+}
+
+// Afect the mat-slider in any place of the application
+.mdc-slider__track--active_fill{
+  border-color: red !important;
+}
