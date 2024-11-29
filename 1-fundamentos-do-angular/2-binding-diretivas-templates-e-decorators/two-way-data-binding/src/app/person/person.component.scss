@@ -1,0 +1,21 @@
+.item {
+  padding: 15px;
+  background-color: #fff;
+
+  &--name{
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &--age{
+    font-size: 20px;
+    font-weight: 300;
+  }
+  &--odd{
+    background-color: rgb(82,82,82);
+  }
+  &--highlighted{
+    color: #fff;
+    background-color: rgb(60,229,54);
+    border: 3px solid rgb(168,255,168);
+  }
+}

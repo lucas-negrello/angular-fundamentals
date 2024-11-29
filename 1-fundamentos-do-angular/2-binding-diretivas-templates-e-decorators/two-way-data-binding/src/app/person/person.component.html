@@ -1,0 +1,12 @@
+
+<div class="item"
+     [class.item--odd]="isOdd"
+     [class.item--highlighted]="isSelected"
+     (click)="selectPerson()"
+>
+  <p *ngIf="isFirst" class="item__name">É o primeiro</p>
+  <p class="item__name">{{ personIndex }} - {{ personName }}</p>
+  <p class="item__age">{{personAge}}</p>
+  <p *ngIf="isLast" class="item__name">É o último</p>
+</div>
+
