@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-container {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-div {
+  flex-grow: 1;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  background-color: #d3d3d3;
+}
+
+.main-left-div {
+  height: 80%;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  background-color: #e3e3e3;
+}
+
+.right-div {
+  width: 30%;
+  max-height: 100vh;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  background-color: #c3c3c3;
+}

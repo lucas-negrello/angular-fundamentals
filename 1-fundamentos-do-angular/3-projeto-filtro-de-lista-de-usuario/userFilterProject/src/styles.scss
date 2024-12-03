@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+@import "./styles/utils/_text-align-center.scss";
+@include mat.all-component-typographies();
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
