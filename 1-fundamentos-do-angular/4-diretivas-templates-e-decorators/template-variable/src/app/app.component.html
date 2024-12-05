@@ -1,0 +1,32 @@
+<!--  ESCOPOS -->
+
+  <!--<div class="primo">-->
+  <!--&lt;!&ndash;  {{ inputPai }}&ndash;&gt;-->
+  <!--&lt;!&ndash;  {{ inputFilha }}&ndash;&gt;-->
+  <!--</div>-->
+
+  <!--<div class="pai" *ngIf="true">-->
+  <!--  <input #inputPai>-->
+
+  <!--&lt;!&ndash;  {{ inputFilha }}&ndash;&gt;-->
+
+  <!--  <div class="filha" *ngIf="true">-->
+  <!--    <input #inputFilha>-->
+
+  <!--    {{ inputPai }}-->
+  <!--  </div>-->
+
+  <!--</div>-->
+
+<!-- HTML COM @ViewChild -->
+
+Meu input: <input type="text" #meuInput>
+
+<button (click)="updateInputText()">Atualizar</button>
+<button (click)="focus()">Focar no Input</button>
+
+<div #minhaDiv>
+  Conteudo Inicial.
+</div>
+
+<button (click)="mudarConteudo()">Atualizar Div com Input</button>
