@@ -5,31 +5,31 @@
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Nome: </span><span class="mat-h3">nome</span>
+      <span class="mat-h2">Nome: </span><span class="mat-h3">{{ user.nome | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Email: </span><span class="mat-h3">email</span>
+      <span class="mat-h2">Email: </span><span class="mat-h3">{{ user.email | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Telefone: </span><span class="mat-h3">telefone</span>
+      <span class="mat-h2">Telefone: </span><span class="mat-h3">{{ user.telefone | phone | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Endereço: </span><span class="mat-h3">endereco</span>
+      <span class="mat-h2">Endereço: </span><span class="mat-h3">{{ user.endereco | address | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Ativo: </span><span class="mat-h3">ativo</span>
+      <span class="mat-h2">Status: </span><span class="mat-h3">{{ user.ativo | status | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Função: </span><span class="mat-h3">funcao</span>
+      <span class="mat-h2">Função: </span><span class="mat-h3">{{ user.funcao | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item role="listitem">
-      <span class="mat-h2">Data de Cadastro: </span><span class="mat-h3">data</span>
+      <span class="mat-h2">Data de Cadastro: </span><span class="mat-h3">{{ user.dataCadastro | date:'hh:mm dd/MM/yyyy' | dashIfEmpty }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
   </mat-list>

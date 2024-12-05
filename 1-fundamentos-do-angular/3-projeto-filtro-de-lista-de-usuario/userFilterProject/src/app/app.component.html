@@ -1,13 +1,13 @@
 <div class="container">
   <div class="left-container">
     <div class="top-div">
-      <app-filter></app-filter>
+      <app-filter (onFilter)="onFilter($event)"></app-filter>
     </div>
     <div class="main-left-div">
-<!--      Conteúdo da div da esquerda (80%) -->
+      <app-users-list [usersList]="usersListFiltered" (userSelected)="onUserSelected($event)"></app-users-list>
     </div>
   </div>
   <div class="right-div">
-    <app-user-details></app-user-details>
+    <app-user-details [user]="userSelected" *ngIf="showUserDetails"></app-user-details>
   </div>
 </div>
