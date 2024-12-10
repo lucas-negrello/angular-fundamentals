@@ -1,4 +1,6 @@
+<!-------------------------------------------------------------------------------------------->
 <!--  ESCOPOS -->
+<!-------------------------------------------------------------------------------------------->
 
   <!--<div class="primo">-->
   <!--&lt;!&ndash;  {{ inputPai }}&ndash;&gt;-->
@@ -18,15 +20,66 @@
 
   <!--</div>-->
 
+<!-------------------------------------------------------------------------------------------->
 <!-- HTML COM @ViewChild -->
+<!-------------------------------------------------------------------------------------------->
 
-Meu input: <input type="text" #meuInput>
+  <!--Meu input: <input type="text" #meuInput>-->
 
-<button (click)="updateInputText()">Atualizar</button>
-<button (click)="focus()">Focar no Input</button>
+  <!--<button (click)="updateInputText()">Atualizar</button>-->
+  <!--<button (click)="focus()">Focar no Input</button>-->
 
-<div #minhaDiv>
-  Conteudo Inicial.
-</div>
+  <!--<div #minhaDiv>-->
+  <!--  Conteudo Inicial.-->
+  <!--</div>-->
 
-<button (click)="mudarConteudo()">Atualizar Div com Input</button>
+  <!--<button (click)="mudarConteudo()">Atualizar Div com Input</button>-->
+
+<!-------------------------------------------------------------------------------------------->
+<!-- ACESSAR FILHOS COM VIEWCHILD -->
+<!-------------------------------------------------------------------------------------------->
+
+  <!--<app-filho #filhoComp></app-filho>-->
+
+  <!--<button (click)="hello()">Oi</button>-->
+
+<!-------------------------------------------------------------------------------------------->
+<!-- CONFIGURAÇÃO STATIC DOS FILHOS -->
+<!-------------------------------------------------------------------------------------------->
+
+  <!--Meu Input:-->
+  <!--<input-->
+  <!--  type="text"-->
+  <!--  *ngIf="true"-->
+  <!--  #meuInput>-->
+
+<!-------------------------------------------------------------------------------------------->
+<!-- USANDO VIEW CHILDREN -->
+<!-------------------------------------------------------------------------------------------->
+
+<!--  <button-->
+<!--    #meuButton-->
+<!--    class="btn-{{ i }}"-->
+<!--    *ngFor="let btn of buttonsList; let i = index"-->
+<!--    (click)="changeColor($event)"-->
+<!--  >-->
+<!--    {{btn}}-->
+<!--  </button>-->
+
+<!--  <button-->
+<!--    (click)="resetButtons()"-->
+<!--  >-->
+<!--    Resetar-->
+<!--  </button>-->
+
+<!--  <button-->
+<!--    (click)="first()"-->
+<!--  >-->
+<!--    Pegar Primeiro-->
+<!--  </button>-->
+
+<!--  <button-->
+<!--    (click)="remove()"-->
+<!--  >-->
+<!--    Remover Item-->
+<!--  </button>-->
