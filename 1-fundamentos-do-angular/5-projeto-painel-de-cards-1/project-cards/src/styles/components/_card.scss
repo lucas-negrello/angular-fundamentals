@@ -1,0 +1,23 @@
+.ca-c-card {
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: white;
+
+  &__header {
+    padding: 15px;
+    background-color: rgb(233, 129, 50);
+
+    &--bg-blue {
+      background-color: #32e9da;
+    }
+  }
+
+  &__content {
+    padding: 15px;
+    overflow: hidden;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+  }
+}

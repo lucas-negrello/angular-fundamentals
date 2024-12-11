@@ -1,0 +1,20 @@
+.balance-card {
+
+  &__header {
+
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-left: auto;
+      font-size: 20px;
+    }
+  }
+
+  &__content-summary {
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0px 12px;
+  }
+}
