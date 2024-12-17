@@ -1,0 +1,9 @@
+.ca-c-card-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+    p:nth-of-type(1) {
+        margin-right: auto;
+    }
+}

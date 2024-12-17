@@ -1,0 +1,47 @@
+.ca-c-card {
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+
+    &__header {
+        padding: 15px;
+        background-color: rgb(233, 129, 50);
+        display: block;
+
+        &[color="blue"] {
+            background-color: #32e9da;
+        }
+
+        &[color="red"] {
+            background-color: #e9323e;
+        }
+    }
+
+    &__content {
+        padding: 15px;
+        overflow: hidden;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: white;
+        display: block;
+    }
+
+    &__title-text {
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    &__description-text {
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    &__medium-icon {
+        width: 40px;
+    }
+
+    &__large-icon {
+        width: 60px;
+    }
+}
