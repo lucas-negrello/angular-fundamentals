@@ -1,0 +1,60 @@
+<div>{{'Uppercase' | uppercase}}</div>
+<!--UPPERCASE-->
+
+<div>{{'Lower Case' | lowercase}}</div>
+<!--lower case-->
+
+<div>{{'captalize the text' | titlecase}}</div>
+<!--Captalize The Text-->
+
+<div>{{ pessoa | json }}</div>
+<!--{ "nome": "Jane", "idade": 26, "status": 1 }-->
+
+<div>{{ 'cortando o texto' | slice:0:8 }}</div>
+<!--cortando-->
+
+<div>{{ [0,1,2,3,4,5,6,7,8,9] | slice:4}}</div>
+<!--4,5,6,7,8,9-->
+
+<div *ngFor="let n of [1,2,3,4,5] | slice:0:2">
+  {{ n }}
+</div>
+<!--1-->
+<!--2-->
+
+<br>
+<div>Status do Usuário: <b>{{pessoa.status | userStatus}}</b></div>
+<br>
+<div>Nome do Usuário: <b>{{pessoa.nome | truncate:2 }}</b></div>
+<br><br><br>
+<div>Data String ISO8601: <b>{{minhaData}}</b> - <b>{{minhaData | date: 'full'}}</b></div>
+<div>Data Date UTC-0: <b>{{dateData}}</b> - <b>{{dateData | date: 'full' : '+0000'}}</b></div>
+<div>Data Timestamp: <b>{{timestampData}}</b> - <b>{{timestampData | date: 'full' : '+0000'}}</b></div>
+
+
+<h1>Formataçoes de datas</h1>
+Curto: {{ minhaData | date: 'short' }}  <br>
+Médio: {{ minhaData | date: 'medium' }}  <br>
+Longo: {{ minhaData | date: 'long' }}  <br>
+Completo: {{ minhaData | date: 'full' }}  <br>
+
+<h2>Customizado</h2>
+<b>Hoje é Monday dia 21 de October de 2024</b>
+<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY" }}</p>
+<br>
+<b>Hoje é Monday dia 21 de October de 2024 as 18:00</b>
+<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm" }}</p>
+<br>
+<b>Hoje é Monday dia 21 de October de 2024 as 18:00 GMT-03:00</b>
+<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm ZZZZ" }}</p>
+<br>
+<b>Hoje é Monday dia 21 de October de 2024 as 21:00 GMT+00:00</b>
+<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm ZZZZ" : "+0000" }}</p>
+<br>
+<b>Data: 21/10/2024 Hora: 18:00 PM</b>
+<p>{{ minhaData | date : "'Data:' dd/MM/YYYY 'Hora:' HH:mm 'PM'" }}</p>
+<br>
+
+
+<h2>Locale</h2>
+<p>{{ minhaData | date : 'full' : undefined : 'pt-BR'}}</p>
