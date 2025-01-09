@@ -1,60 +1,196 @@
-<div>{{'Uppercase' | uppercase}}</div>
-<!--UPPERCASE-->
+<!--<div>{{'Uppercase' | uppercase}}</div>-->
+<!--&lt;!&ndash;UPPERCASE&ndash;&gt;-->
 
-<div>{{'Lower Case' | lowercase}}</div>
-<!--lower case-->
+<!--<div>{{'Lower Case' | lowercase}}</div>-->
+<!--&lt;!&ndash;lower case&ndash;&gt;-->
 
-<div>{{'captalize the text' | titlecase}}</div>
-<!--Captalize The Text-->
+<!--<div>{{'captalize the text' | titlecase}}</div>-->
+<!--&lt;!&ndash;Captalize The Text&ndash;&gt;-->
 
-<div>{{ pessoa | json }}</div>
-<!--{ "nome": "Jane", "idade": 26, "status": 1 }-->
+<!--<div>{{ pessoa | json }}</div>-->
+<!--&lt;!&ndash;{ "nome": "Jane", "idade": 26, "status": 1 }&ndash;&gt;-->
 
-<div>{{ 'cortando o texto' | slice:0:8 }}</div>
-<!--cortando-->
+<!--<div>{{ 'cortando o texto' | slice:0:8 }}</div>-->
+<!--&lt;!&ndash;cortando&ndash;&gt;-->
 
-<div>{{ [0,1,2,3,4,5,6,7,8,9] | slice:4}}</div>
-<!--4,5,6,7,8,9-->
+<!--<div>{{ [0,1,2,3,4,5,6,7,8,9] | slice:4}}</div>-->
+<!--&lt;!&ndash;4,5,6,7,8,9&ndash;&gt;-->
 
-<div *ngFor="let n of [1,2,3,4,5] | slice:0:2">
-  {{ n }}
+<!--<div *ngFor="let n of [1,2,3,4,5] | slice:0:2">-->
+<!--  {{ n }}-->
+<!--</div>-->
+<!--&lt;!&ndash;1&ndash;&gt;-->
+<!--&lt;!&ndash;2&ndash;&gt;-->
+
+<!--<br>-->
+<!--<div>Status do Usuário: <b>{{pessoa.status | userStatus}}</b></div>-->
+<!--<br>-->
+<!--<div>Nome do Usuário: <b>{{pessoa.nome | truncate:2 }}</b></div>-->
+<!--<br><br><br>-->
+<!--<div>Data String ISO8601: <b>{{minhaData}}</b> - <b>{{minhaData | date: 'full'}}</b></div>-->
+<!--<div>Data Date UTC-0: <b>{{dateData}}</b> - <b>{{dateData | date: 'full' : '+0000'}}</b></div>-->
+<!--<div>Data Timestamp: <b>{{timestampData}}</b> - <b>{{timestampData | date: 'full' : '+0000'}}</b></div>-->
+
+
+<!--<h1>Formataçoes de datas</h1>-->
+<!--Curto: {{ minhaData | date: 'short' }}  <br>-->
+<!--Médio: {{ minhaData | date: 'medium' }}  <br>-->
+<!--Longo: {{ minhaData | date: 'long' }}  <br>-->
+<!--Completo: {{ minhaData | date: 'full' }}  <br>-->
+
+<!--<h2>Customizado</h2>-->
+<!--<b>Hoje é Monday dia 21 de October de 2024</b>-->
+<!--<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY" }}</p>-->
+<!--<br>-->
+<!--<b>Hoje é Monday dia 21 de October de 2024 as 18:00</b>-->
+<!--<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm" }}</p>-->
+<!--<br>-->
+<!--<b>Hoje é Monday dia 21 de October de 2024 as 18:00 GMT-03:00</b>-->
+<!--<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm ZZZZ" }}</p>-->
+<!--<br>-->
+<!--<b>Hoje é Monday dia 21 de October de 2024 as 21:00 GMT+00:00</b>-->
+<!--<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm ZZZZ" : "+0000" }}</p>-->
+<!--<br>-->
+<!--<b>Data: 21/10/2024 Hora: 18:00 PM</b>-->
+<!--<p>{{ minhaData | date : "'Data:' dd/MM/YYYY 'Hora:' HH:mm 'PM'" }}</p>-->
+<!--<br>-->
+
+
+<!--<h2>Locale</h2>-->
+<!--<p>{{ minhaData | date : 'full' : undefined : 'pt-BR'}}</p>-->
+
+
+<!--<h1>DECIMAL PIPE</h1>-->
+
+<!--<h3>NUMERO | number : '<b>mínimo de inteiros</b> . <b>mínimo de decimais</b> - <b>máximo de decimais</b>' : 'local'</h3>-->
+
+<!--<b>Digits info: 3.0-2 // Number: 12.3 // Result: 012.3</b>-->
+<!--<p>{{12.3 | number: '3.0-2' : 'en-US'}}</p>-->
+
+<!--<b>Digits info: 3.0-2 // Locale: en-US // Number: 1212.3 // Result: 1,212.3</b>-->
+<!--<p>{{1212.3 | number: '3.0-2' : 'en-US'}}</p>-->
+
+<!--<b>Digits info: 3.0-2 // Locale: pt-BR // Number: 1212.3 // Result: 1.212,3</b>-->
+<!--<p>{{1212.3 | number: '3.0-2' : 'pt-BR'}}</p>-->
+
+<!--<b>Digits info: undefined // Locale: undefined // Number: 1212.3 // Result: 1.212,3 <br>-->
+<!--Irá pegar a linguagem default do pipe, definida no inicio do projeto (neste caso pt-BR) <br>-->
+<!--Caso nao seja definida linguagem, a default é en-US</b>-->
+<!--<p>{{1212.3 | number}}</p>-->
+
+<!--<b>Digits info: undefined // Locale: pt-BR // Number: 1212.3 // Result: 1.212,3</b>-->
+<!--<p>{{1212.3 | number: undefined : 'pt-BR'}}</p>-->
+
+<!--<b>Digits info: 0.3-4 // Locale: pt-BR // Number: 12.3 // Result: 12,300</b>-->
+<!--<p>{{12.3 | number: '0.3-4' : 'pt-BR'}}</p>-->
+
+<!--<b>Digits info: 0.3-4 // Locale: pt-BR // Number: 12.34567 // Result: 12,3457</b>-->
+<!--<p>{{12.34567 | number: '0.3-4' : 'pt-BR'}}</p>-->
+
+<!--<b>Digits info: 0.3-4 // Locale: pt-BR // Number: 12.34224 // Result: 12,3422</b>-->
+<!--<p>{{12.34224 | number: '0.3-4' : 'pt-BR'}}</p>-->
+
+<!--<b> <sub> Se o valor que passa do máximo for maior ou igual que 5, o valor do último decimal será adicionado em um</sub> </b>-->
+<!--<br>-->
+<!--<b> <sub> Se o valor que passa do máximo for menor que 5, o valor do último decimal será mantido</sub> </b>-->
+<!--<br>-->
+
+
+<!--<h1>CURRENCY PIPE</h1>-->
+
+<!--<h3>NUMERO | currency : '<b>código ISO 4217</b> : <b>modo de display (string)</b> : <b>'digits info'</b> : 'local'</h3>-->
+
+<!--<b>Currency code: undefined // Number: 1200.99 // Result: R$ 1.200,99</b>-->
+<!--<p>{{1200.99 | currency}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Number: 1200.99 // Result: R$ 1.200,99</b>-->
+<!--<p>{{1200.99 | currency : 'BRL'}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Display: 'code' // Number: 1200.99 // Result: BRL 1.200,99</b>-->
+<!--<p>{{1200.99 | currency : 'BRL' : 'code'}}</p>-->
+
+<!--<b>DEFAULT</b>-->
+<!--<b>Currency code: 'USD' // Display: 'symbol' // Number: 1200.99 // Result: US$ 1.200,99</b>-->
+<!--<p>{{1200.99 | currency : 'USD' : 'symbol'}}</p>-->
+
+<!--<b>Currency code: 'USD' // Display: 'symbol-narrow' // Number: 1200.99 // Result: $ 1.200,99</b>-->
+<!--<p>{{1200.99 | currency : 'USD' : 'symbol-narrow'}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Display: 'custom $' // Number: 1200.99 // Result: custom $ 1.200,99</b>-->
+<!--<p>{{1200.99 | currency : 'BRL' : 'custom $'}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Display: undefined // Digits Info: undefined // Number: 1200.99 // Result: custom R$ 1.200,99</b>-->
+<!--<p>{{1200.99 | currency : 'BRL' : undefined : undefined}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Display: undefined // Digits Info: '7.4-4' // Number: 1200.99 // Result: custom R$ 0.001.200,9900</b>-->
+<!--<p>{{1200.99 | currency : 'BRL' : undefined : '7.4-4'}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Display: undefined // Digits Info: '1.0-0' // Number: 1200.99 // Result: custom R$ 1.201</b>-->
+<!--<p>{{1200.99 | currency : 'BRL' : undefined : '1.0-0'}}</p>-->
+
+<!--<b>Currency code: 'BRL' // Display: undefined // Digits Info: undefined // Locale: 'en-US' // Number: 1200.99 // Result: custom R$ 1,200.99</b>-->
+<!--<p>{{1200.99 | currency : 'BRL' : undefined : undefined : 'en-US'}}</p>-->
+
+<!--<h1>ASYNC PIPE</h1>-->
+
+<!--<h2>Renderizando um objeto</h2>-->
+
+<!--<h3>OBSERVABLE | async</h3>-->
+
+<!--<b>user.name response manualmente</b>-->
+<!--<p>{{user.name}}</p>-->
+
+<!--<b>user$.name subscription response pelo async pipe</b>-->
+<!--<p *ngIf="(user$ | async) as asyncUser">-->
+<!--  {{ asyncUser.name }}-->
+<!--</p>-->
+
+<!--<h2>Renderizando uma colection</h2>-->
+
+<!--<h3>OBSERVABLE | async</h3>-->
+
+<!--<b>response manual</b> <br><br>-->
+<!--<div *ngFor="let user of userCollection | slice:0:5; let i = index">-->
+<!--  <b>{{i+1}} user.name</b>-->
+<!--  <p>{{user.name}}</p>-->
+<!--</div>-->
+
+
+<!--<b>response pelo async pipe</b> <br><br>-->
+<!--<div *ngFor="let user$ of userCollection$ | async | slice:0:5; let i = index">-->
+<!--  <b>{{i+1}} user$.name</b>-->
+<!--  <p>-->
+<!--    {{ user$.name }}-->
+<!--  </p>-->
+<!--</div>-->
+
+<!--<h2>Renderizando uma promise</h2>-->
+
+<!--<b>user.name response manualmente</b>-->
+<!--<p *ngIf="userPromise.name; else loading">{{userPromise.name}}</p>-->
+
+<!--<b>user$.name subscription response pelo async pipe</b>-->
+<!--<p *ngIf="(userPromise$ | async) as asyncUser; else loading">-->
+<!--  {{ asyncUser.name }}-->
+<!--</p>-->
+
+<!--<b>user.name response usando observable como promise (lastValueFrom)</b>-->
+<!--<p *ngIf="(userObservablePromise | async) as asyncUser; else loading">-->
+<!--  {{ asyncUser.name }}-->
+<!--</p>-->
+
+<!--<ng-template #loading>-->
+<!--  <p>carregando...</p>-->
+<!--</ng-template>-->
+
+<button (click)="addUser()">Adicionar</button>
+<input type="text" name="filter" id="filter" [(ngModel)]="searchValue">
+<div *ngFor="let user of users | filter : 'name' : searchValue; let i = index;">
+
+  <p>Nome: {{user.name}}</p>
+  <p>Status: {{user.status | userStatus}}</p>
+
+  <img width="50px" [src]="user.status | userStatusImage" alt="status image">
+
+  <button (click)="inactivateUser(i)">Inativar Usuario</button>
 </div>
-<!--1-->
-<!--2-->
-
-<br>
-<div>Status do Usuário: <b>{{pessoa.status | userStatus}}</b></div>
-<br>
-<div>Nome do Usuário: <b>{{pessoa.nome | truncate:2 }}</b></div>
-<br><br><br>
-<div>Data String ISO8601: <b>{{minhaData}}</b> - <b>{{minhaData | date: 'full'}}</b></div>
-<div>Data Date UTC-0: <b>{{dateData}}</b> - <b>{{dateData | date: 'full' : '+0000'}}</b></div>
-<div>Data Timestamp: <b>{{timestampData}}</b> - <b>{{timestampData | date: 'full' : '+0000'}}</b></div>
-
-
-<h1>Formataçoes de datas</h1>
-Curto: {{ minhaData | date: 'short' }}  <br>
-Médio: {{ minhaData | date: 'medium' }}  <br>
-Longo: {{ minhaData | date: 'long' }}  <br>
-Completo: {{ minhaData | date: 'full' }}  <br>
-
-<h2>Customizado</h2>
-<b>Hoje é Monday dia 21 de October de 2024</b>
-<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY" }}</p>
-<br>
-<b>Hoje é Monday dia 21 de October de 2024 as 18:00</b>
-<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm" }}</p>
-<br>
-<b>Hoje é Monday dia 21 de October de 2024 as 18:00 GMT-03:00</b>
-<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm ZZZZ" }}</p>
-<br>
-<b>Hoje é Monday dia 21 de October de 2024 as 21:00 GMT+00:00</b>
-<p>{{ minhaData | date : "'Hoje é' EEEE 'dia' dd  'de' MMMM 'de' YYYY 'as' HH:mm ZZZZ" : "+0000" }}</p>
-<br>
-<b>Data: 21/10/2024 Hora: 18:00 PM</b>
-<p>{{ minhaData | date : "'Data:' dd/MM/YYYY 'Hora:' HH:mm 'PM'" }}</p>
-<br>
-
-
-<h2>Locale</h2>
-<p>{{ minhaData | date : 'full' : undefined : 'pt-BR'}}</p>
