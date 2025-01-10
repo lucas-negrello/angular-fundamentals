@@ -1,0 +1,70 @@
+<form #form="ngForm" appDepartmentQuantityValidator>
+
+  <h3>Validador Sincrono</h3>
+  <input
+    type="text"
+    name="nome"
+    ngModel
+    #nomeControl="ngModel"
+    placeholder="Digite o nome"
+    required
+    appInvalidTextValidator
+  >
+  <span *ngIf="nomeControl && nomeControl.invalid && (nomeControl.touched || nomeControl.dirty)">
+    <span *ngIf="nomeControl.hasError('invalidText')">{{nomeControl.getError('invalidText')}}</span>
+  </span>
+
+  <br>
+  <hr>
+  <hr>
+  <br>
+
+  <h3>Validador Síncrono Multiplos Campos</h3>
+  <label for="departamento">Departamento</label>
+  <select name="departamento" id="departamento" ngModel>
+    <option value="IT">Tecnologia</option>
+    <option value="RH">Recursos Humanos</option>
+  </select>
+
+  <input type="text"
+         name="quantidade"
+         id="quantidade"
+         ngModel
+         placeholder="Quantidade de pessoas"
+         >
+
+  <div *ngIf="form && form.invalid && (form.touched || form.dirty)">
+    <span *ngIf="form.hasError('InvalidITQuantity')">{{form.getError('InvalidITQuantity')}}</span>
+    <span *ngIf="form.hasError('InvalidRHQuantity')">{{form.getError('InvalidRHQuantity')}}</span>
+  </div>
+
+  <br>
+  <hr>
+  <hr>
+  <br>
+
+  <h3>Validador Assincrono</h3>
+
+  <input
+    type="text"
+    name="username"
+    id="username"
+    ngModel
+    #usernameControl="ngModel"
+    appUserNameValidator
+    [ngModelOptions]="{updateOn: 'blur'}"
+  >
+
+  <div *ngIf="usernameControl.dirty">
+   <span *ngIf="usernameControl.pending">Verificando...</span>
+    <span
+      *ngIf="!usernameControl.hasError('invalidUserName') &&
+             usernameControl.valid &&
+             !usernameControl.pending
+            ">Usuario existente</span>
+    <span *ngIf="usernameControl.hasError('invalidUserName') &&
+             usernameControl.invalid &&
+             !usernameControl.pending
+    ">{{usernameControl.getError('invalidUserName')}}</span>
+  </div>
+</form>

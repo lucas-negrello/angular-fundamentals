@@ -1,0 +1,29 @@
+<input
+  [(ngModel)]="jsontitle.title"
+>
+
+{{jsontitle | json}}
+
+<br><br>
+
+<input ngModel #inputFormControl="ngModel" minlength="5" required><br>
+<div *ngIf="inputFormControl.invalid && inputFormControl.touched "
+     [ngClass]="inputFormControl.valid ? 'valid' : 'invalid'">
+  <div *ngIf="inputFormControl.hasError('required')">
+    O campo nome é obrigatório
+  </div>
+  <div *ngIf="inputFormControl.hasError('minlength')">
+    O campo nome deve ter pelo menos 5 caracteres
+  </div>
+</div>
+<br><br>
+
+Valid: {{inputFormControl.valid}} <br>
+Touched: {{inputFormControl.touched}} <br>
+Dirty: {{inputFormControl.dirty}} <br>
+Pristine: {{inputFormControl.pristine}} <br>
+Value: {{inputFormControl.value}} <br>
+Status Changes (async): {{inputFormControl.statusChanges | async}} <br>
+Value Changes (async): {{inputFormControl.valueChanges | async}} <br>
+
+

@@ -1,0 +1,19 @@
+<textarea
+  [ngModel]="initial"
+  (ngModelChange)="onChange($event)"
+  #textAreaFormControl="ngModel"
+  minlength="5"
+  required
+></textarea>
+<button (click)="onChange('Valor Inicial')">Initial Text</button>
+<p>{{initial}}</p>
+<br><br>
+
+
+Valid: {{textAreaFormControl.valid}} <br>
+Touched: {{textAreaFormControl.touched}} <br>
+Dirty: {{textAreaFormControl.dirty}} <br>
+Pristine: {{textAreaFormControl.pristine}} <br>
+Value: {{textAreaFormControl.value}} <br>
+Status Changes (async): {{textAreaFormControl.statusChanges | async}} <br>
+Value Changes (async): {{textAreaFormControl.valueChanges | async}} <br>

@@ -1,0 +1,48 @@
+<form ngForm #form="ngForm">
+  <input
+    type="radio"
+    id="html"
+    name="group"
+    value="html"
+    [(ngModel)]="radioSelection"
+    required
+  >
+  <label for="html">
+    HTML
+  </label>
+
+  <input
+    type="radio"
+    id="css"
+    name="group"
+    value="css"
+    [(ngModel)]="radioSelection"
+    required
+  >
+  <label for="css">
+    CSS
+  </label>
+
+  <input
+    type="radio"
+    id="typescript"
+    name="group"
+    value="typescript"
+    [(ngModel)]="radioSelection"
+    required
+  >
+  <label for="typescript">
+    Typescript
+  </label>
+</form>
+<div>{{radioSelection}}</div>
+<br><br>
+
+<h3>Form Selection</h3>
+Valid: {{form.valid}} <br>
+Touched: {{form.touched}} <br>
+Dirty: {{form.dirty}} <br>
+Pristine: {{form.pristine}} <br>
+Value: {{form.value | json}} <br>
+Status Changes (async): {{form.statusChanges | async}} <br>
+Value Changes (async): {{form.valueChanges | async | json}} <br>

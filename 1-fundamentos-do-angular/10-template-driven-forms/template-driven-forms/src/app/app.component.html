@@ -1,29 +1,139 @@
-<input
-  [(ngModel)]="jsontitle.title"
->
-
-{{jsontitle | json}}
-
-<br><br>
-
-<input ngModel #inputFormControl="ngModel" minlength="5" required><br>
-<div *ngIf="inputFormControl.invalid && inputFormControl.touched "
-     [ngClass]="inputFormControl.valid ? 'valid' : 'invalid'">
-  <div *ngIf="inputFormControl.hasError('required')">
-    O campo nome é obrigatório
+<div style="display: flex; flex-direction: row; column-gap: 20px">
+  <h2>Componentes</h2>
+  <button (click)="toggle('components')">
+    {{visibilities.components ? 'Hide' : 'Show'}}
+  </button>
+</div>
+<div *ngIf="visibilities.components">
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Input Text component</h1>
+    <button (click)="toggle('input-text')">
+      {{visibilities.input_text ? 'Hide' : 'Show'}}
+    </button>
   </div>
-  <div *ngIf="inputFormControl.hasError('minlength')">
-    O campo nome deve ter pelo menos 5 caracteres
+  <div *ngIf="visibilities.input_text">
+    <app-input-text></app-input-text>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Textarea component</h1>
+    <button (click)="toggle('input-textarea')">
+      {{visibilities.input_textarea ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.input_textarea">
+    <app-text-area></app-text-area>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Select component</h1>
+    <button (click)="toggle('input-select')">
+      {{visibilities.input_select ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.input_select">
+    <app-select></app-select>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Radio Button component</h1>
+    <button (click)="toggle('input-radio')">
+      {{visibilities.input_radio ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.input_radio">
+    <app-radio-button></app-radio-button>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Checkbox component</h1>
+    <button (click)="toggle('input-checkbox')">
+      {{visibilities.input_checkbox ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.input_checkbox">
+    <app-checkbox></app-checkbox>
   </div>
 </div>
-<br><br>
+<div style="display: flex; flex-direction: row; column-gap: 20px">
+  <h2>Form</h2>
+  <button (click)="toggle('form')">
+    {{visibilities.form ? 'Hide' : 'Show'}}
+  </button>
+</div>
+<div *ngIf="visibilities.form">
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Form 1 component</h1>
+    <button (click)="toggle('form-first')">
+      {{visibilities.form_first ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.form_first">
+    <app-form></app-form>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Form User Jobs component</h1>
+    <button (click)="toggle('user-job-form')">
+      {{visibilities.user_job_form ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.user_job_form">
+    <app-user-job-form></app-user-job-form>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Form Children component</h1>
+    <button (click)="toggle('form-children')">
+      {{visibilities.form_children ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.form_children">
+    <app-form-children></app-form-children>
+  </div>
+  <div style="display: flex; flex-direction: row; column-gap: 20px">
+    <h1>Custom Validators component</h1>
+    <button (click)="toggle('custom-validators-form')">
+      {{visibilities.custom_validators_form ? 'Hide' : 'Show'}}
+    </button>
+  </div>
+  <div *ngIf="visibilities.custom_validators_form">
+    <app-custom-validators></app-custom-validators>
+  </div>
+</div>
+<div style="display: flex; flex-direction: row; column-gap: 20px">
+  <h2>Standalone Form</h2>
+  <button (click)="toggle('standalone-form')">
+    {{visibilities.standalone_form ? 'Hide' : 'Show'}}
+  </button>
+</div>
+<div *ngIf="visibilities.standalone_form">
+  <form #form="ngForm">
+    <input type="text" name="nome" ngModel placeholder="digite o nome" required>
 
-Valid: {{inputFormControl.valid}} <br>
-Touched: {{inputFormControl.touched}} <br>
-Dirty: {{inputFormControl.dirty}} <br>
-Pristine: {{inputFormControl.pristine}} <br>
-Value: {{inputFormControl.value}} <br>
-Status Changes (async): {{inputFormControl.statusChanges | async}} <br>
-Value Changes (async): {{inputFormControl.valueChanges | async}} <br>
+    <input
+      type="text"
+      name="sozinho"
+      ngModel #aloneControl="ngModel"
+      placeholder="Digite algo"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    >
+
+    <h3>Form Data</h3>
+    Valid: {{form.valid}} <br>
+    Touched: {{form.touched}} <br>
+    Dirty: {{form.dirty}} <br>
+    Pristine: {{form.pristine}} <br>
+    Value: {{form.value | json}} <br>
+    Status Changes (async): {{form.statusChanges | async}} <br>
+    Value Changes (async): {{form.valueChanges | async | json}} <br>
 
 
+<!--    Os dados podem ser lidos, mas o input nao está ligado ao formulario-->
+<!--    Portanto, o formulario nao vai ter a referencia para ele-->
+    <h3>Standalone Control Data</h3>
+    Valid: {{aloneControl.valid}} <br>
+    Touched: {{aloneControl.touched}} <br>
+    Dirty: {{aloneControl.dirty}} <br>
+    Pristine: {{aloneControl.pristine}} <br>
+    Value: {{aloneControl.value | json}} <br>
+    Status Changes (async): {{aloneControl.statusChanges | async}} <br>
+    Value Changes (async): {{aloneControl.valueChanges | async | json}} <br>
+
+  </form>
+</div>

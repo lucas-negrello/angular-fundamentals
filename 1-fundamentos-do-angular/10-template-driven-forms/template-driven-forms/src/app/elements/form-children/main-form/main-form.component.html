@@ -1,0 +1,15 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+<!--  nos componentes filhos é necessário linkar eles com o formulário em que estão sendo usados-->
+<!--  colocando o seguinte no seu decorator:-->
+<!--    viewProviders: [{provide: ControlContainer, useExisting: NgForm}]  -->
+<!--  desta maneira, os componentes filhos irão se referenciar ao formulário mais proximo em que se encontram-->
+
+  <app-form-user></app-form-user>
+
+  <app-form-profession></app-form-profession>
+
+  <br><br><br>
+
+  <button type="submit" [disabled]="form.invalid">Enviar</button>
+</form>

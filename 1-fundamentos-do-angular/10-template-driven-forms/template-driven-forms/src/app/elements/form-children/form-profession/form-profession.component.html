@@ -1,0 +1,8 @@
+<div ngModelGroup="grupoProfissao" #grupoProfissao="ngModelGroup">
+  <h2>Dados da Profissão</h2>
+  <input type="text" name="cargo" ngModel placeholder="Cargo" required>
+  <input type="text" name="setor" ngModel placeholder="Setor" required>
+
+  <b>Estado da profissão: </b>
+  <p>Válido: {{grupoProfissao.valid}}</p>
+</div>

@@ -1,0 +1,21 @@
+<input
+  type="checkbox"
+  name="isActive"
+  id="isActive"
+  [(ngModel)]="isActive"
+  #checkboxFormControl="ngModel"
+  required
+>
+<label for="isActive">Ativo</label>
+<p>{{isActive}}</p>
+<br><br>
+
+
+Valid: {{checkboxFormControl.valid}} <br>
+Touched: {{checkboxFormControl.touched}} <br>
+Dirty: {{checkboxFormControl.dirty}} <br>
+Pristine: {{checkboxFormControl.pristine}} <br>
+Value: {{checkboxFormControl.value}} <br>
+Status Changes (async): {{checkboxFormControl.statusChanges | async}} <br>
+Value Changes (async): {{checkboxFormControl.valueChanges | async}} <br>
+

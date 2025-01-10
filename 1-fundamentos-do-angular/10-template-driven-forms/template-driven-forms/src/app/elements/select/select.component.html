@@ -1,0 +1,63 @@
+<label for="cars">
+  Selecione um Carro
+</label>
+<select
+  name="cars"
+  id="cars"
+  [ngModel]="car"
+  (ngModelChange)="carRefactor($event)"
+  #selectFormControl="ngModel"
+  required
+>
+  <option value="" selected></option>
+  <option value="gol">Gol</option>
+  <option value="linea">Linea</option>
+  <option value="amarok">Amarok</option>
+  <option value="polo">Polo</option>
+</select>
+{{ car }}
+<br><br>
+
+Valid: {{selectFormControl.valid}} <br>
+Touched: {{selectFormControl.touched}} <br>
+Dirty: {{selectFormControl.dirty}} <br>
+Pristine: {{selectFormControl.pristine}} <br>
+Value: {{selectFormControl.value}} <br>
+Status Changes (async): {{selectFormControl.statusChanges | async}} <br>
+Value Changes (async): {{selectFormControl.valueChanges | async}} <br>
+
+<br>
+<hr>
+<br>
+
+<label for="nationalities">
+  Selecione uma nacionalidade
+</label>
+<select
+  name="nationalities"
+  id="nationalities"
+  [ngModel]="nationality"
+  (ngModelChange)="nationalityRefactor($event)"
+  #selectNacionality="ngModel"
+  style="width: 40%"
+  required
+>
+  <option value="" selected></option>
+  <option
+    *ngFor="let nationality of nationalityNames"
+    [value]="nationality.id"
+  >
+    {{nationality.name}}
+  </option>
+
+</select>
+{{ transformFromSnakeCase(nationality) }}
+<br><br>
+
+Valid: {{selectNacionality.valid}} <br>
+Touched: {{selectNacionality.touched}} <br>
+Dirty: {{selectNacionality.dirty}} <br>
+Pristine: {{selectNacionality.pristine}} <br>
+Value: {{selectNacionality.value}} <br>
+Status Changes (async): {{selectNacionality.statusChanges | async}} <br>
+Value Changes (async): {{selectNacionality.valueChanges | async}} <br>

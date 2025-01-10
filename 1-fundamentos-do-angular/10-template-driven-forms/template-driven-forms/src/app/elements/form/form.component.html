@@ -1,0 +1,73 @@
+<!--ngFormOptions-->
+<!--updateOn -> define quando vão ser atualizados os valores do formulário-->
+<!--O padrao é o change-->
+<!--ngModelOptions-->
+<!--updateOn -> define quando vai ser atualizado o valor do ngModel-->
+<!--O padrão é o change-->
+<form #form="ngForm"
+      (ngSubmit)="onSubmit(form)"
+      [ngFormOptions]="
+      {
+        updateOn: 'change',
+      }"
+>
+  <input
+    name="name"
+    type="text"
+    [(ngModel)]="name"
+    required
+    [ngModelOptions]="{updateOn : 'change'}"
+  >
+  <br>
+  <textarea
+    name="description"
+    [(ngModel)]="description"
+    required
+  ></textarea>
+  <br>
+  <select
+    name="country"
+    [(ngModel)]="country">
+    <option value="brasil">Brasil</option>
+    <option value="eua">EUA</option>
+  </select>
+  <br>
+  <div>
+    <input
+      type="radio"
+      name="status"
+      id="active"
+      value="active"
+      [(ngModel)]="status"
+    >
+    <label for="active">Ativo</label>
+    <input
+      type="radio"
+      name="status"
+      id="inactive"
+      value="inactive"
+      [(ngModel)]="status"
+    >
+    <label for="inactive">Inativo</label>
+  </div>
+  <br>
+  <input
+    type="checkbox"
+    name="terms"
+    id="terms"
+    [(ngModel)]="terms"
+  >
+  <label for="terms">Agree With Terms and Conditions</label>
+  <br><br>
+  <button type="submit">Enviar</button>
+  <button type="button" (click)="onReset(form)">Reset</button>
+</form>
+
+<br><br>
+Valid: {{form.valid}} <br>
+Touched: {{form.touched}} <br>
+Dirty: {{form.dirty}} <br>
+Pristine: {{form.pristine}} <br>
+Value: {{form.value | json}} <br>
+Status Changes (async): {{form.statusChanges | async}} <br>
+Value Changes (async): {{form.valueChanges | async | json}} <br>
