@@ -1,0 +1,40 @@
+<label for="name">Nome: </label>
+<input type="text"
+       id="name"
+       [formControl]="nome"
+       (input)="inputAlterado()">
+<div style="color: red;">
+  <span
+    *ngIf="nome.hasError('required')">
+    O campo é obrigatorio
+  </span>
+  <span
+    *ngIf="nome.hasError('minlength')
+    && !nome.hasError('required')">
+    É necessário no mínimo 6 caracteres
+  </span>
+  <span
+    *ngIf="nome.hasError('invalidText')
+    && !nome.hasError('required')">
+<!--    {{ nome.getError('invalidText') }}-->
+    {{ nome.errors?.['invalidText'] }}
+  </span>
+</div>
+
+<p>Valor: {{nome.value}}</p>
+<p>Valid: {{nome.valid}}</p>
+<p>Status: {{nome.status}}</p>  <!--VALID, INVALID, PENDING, DISABLED-->
+<p>Touched: {{nome.touched}}</p>
+<p>Pristine: {{nome.pristine}}</p>
+
+<p>Value Changes (async){{nome.valueChanges | async}}</p>
+<p>Status Changes (async){{nome.statusChanges | async}}</p>
+
+<button (click)="alterarValor()">Alterar Valor</button>
+<button (click)="desabilitar()">Desabilitar</button>
+<button (click)="habilitar()">Habilitar</button>
+<button (click)="resetar()">Resetar</button>
+<button (click)="resetarComValorInicial()">Resetar Valor Inicial</button>
+<br>
+<button (click)="setValidators()">Set Validators</button>
+<button (click)="addValidators()">Add Validators</button>

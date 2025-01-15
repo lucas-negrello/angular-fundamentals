@@ -1,0 +1,16 @@
+<form [formGroup]="pessoaForm">
+    <input placeholder="Nome" formControlName="nome" />
+
+    <div>
+        <button (click)="adicionarMaisInfos()">Adicionar mais infos</button>
+        <button (click)="removerMaisInfos()">Remover mais infos</button>
+    </div>
+
+    <div *ngIf="mostrarMaisInfos">
+        <input placeholder="Mais Infos" formControlName="maisInfos" />
+    </div>
+</form>
+
+<p>Pessoa Form Válido: {{ pessoaForm.valid }}</p>
+
+<button (click)="mostrarForm()">Mostrar Form</button>

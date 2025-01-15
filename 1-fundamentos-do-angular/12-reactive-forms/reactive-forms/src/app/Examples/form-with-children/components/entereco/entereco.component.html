@@ -1,0 +1,7 @@
+<!-- DENTRO DO COMPONENTE FILHO REFERENCIAMOS O FORMULARIO-->
+<div [formGroup]="pessoaForm">
+  <div formGroupName="endereco">
+    Rua: <input type="text" formControlName="rua"><br>
+    Numero: <input type="text" formControlName="numero"><br>
+  </div>
+</div>

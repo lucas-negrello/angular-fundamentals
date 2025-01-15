@@ -1,0 +1,17 @@
+<form [formGroup]="pessoaForm">
+  Nome: <input type="text" formControlName="nome"><br>
+  Email: <input type="text" formControlName="email"><br>
+  Endereco: <br>
+  <div formGroupName="endereco">
+    Rua: <input type="text" formControlName="rua"><br>
+    Numero: <input type="text" formControlName="numero">
+  </div>
+  <button (click)="pushMusicas()">Add Musica</button>
+  <div formArrayName="musicas">
+    <div *ngFor="let musica of musicas.controls; let i = index" [formGroupName]="i">
+      Nome: <input type="text" formControlName="nome"><br>
+      Artista: <input type="text" formControlName="artista">
+      <button (click)="removeMusicas(i)">Excluir musica</button>
+    </div>
+  </div>
+</form>

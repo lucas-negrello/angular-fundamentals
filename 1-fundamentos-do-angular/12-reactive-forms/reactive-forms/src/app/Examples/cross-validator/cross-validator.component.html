@@ -1,0 +1,12 @@
+<form [formGroup]="pessoaForm">
+    <input placeholder="Senha" formControlName="senha" />
+    <input placeholder="Confirmação de Senha" formControlName="confirmacaoSenha" />
+    <div>
+        <p *ngIf="pessoaForm.get('confirmacaoSenha')?.hasError('invalidPassword')">Confirmação de Senha inválida.</p>
+    </div>
+</form>
+
+<button (click)="mostrarForm()">Mostrar Form</button>
+
+<p>Pessoa Form Válido: {{ pessoaForm.valid }}</p>
+<p>Confirmação Senha Válido: {{ pessoaForm.get('confirmacaoSenha')?.valid }}</p>

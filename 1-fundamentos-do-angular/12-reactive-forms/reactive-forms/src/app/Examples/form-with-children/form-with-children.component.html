@@ -1,0 +1,8 @@
+<form [formGroup]="pessoaForm">
+  Nome: <input type="text" formControlName="pessoa"><br>
+<!--  SEMPRE QUE CRIAR UM ELEMENTO FILHO, TEMOS QUE PASSAR UMA INSTANCIA DO FORMULARIO PARA O FILHO-->
+<!--  VIA INPUT, PARA PODER REFERENCIAR O FORM-->
+  <app-entereco [pessoaForm]="pessoaForm"></app-entereco>
+  <button (click)="markTouch()">Touch Nome</button>
+  <button (click)="enviar()">Enviar</button>
+</form>

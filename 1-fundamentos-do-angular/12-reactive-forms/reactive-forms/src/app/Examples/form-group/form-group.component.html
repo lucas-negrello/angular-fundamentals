@@ -1,0 +1,39 @@
+<form [formGroup]="pessoaForm" (ngSubmit)="submit()">
+
+  <label for="name">Nome:</label>
+  <input type="text" id="name" formControlName="nome">
+  <p *ngIf="this.nome.hasError('required')">O nome é obrigatorio</p>
+  <br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email">
+  <p *ngIf="this.email.hasError('required')">O email é obrigatorio</p>
+  <br><br>
+
+  <div formGroupName="endereco">
+    <label for="street">Rua:</label>
+    <input type="text" id="street" formControlName="rua">
+    <p *ngIf="this.rua.hasError('required')">A rua é obrigatoria</p>
+    <br><br>
+
+    <label for="number">Numero:</label>
+    <input type="text" id="number" formControlName="numero">
+    <p *ngIf="this.numero.hasError('required')">O numero é obrigatorio</p>
+    <br><br>
+  </div>
+
+  <button type="submit">Enviar</button>
+  <button type="button">Nao vai Enviar</button>
+  <button>Vai enviar</button>
+  <br>
+  <button type="button" (click)="alteracaoTotal()">Alteraçao total</button>
+  <button type="button" (click)="alteracaoParcial()">Alteraçao parcial</button>
+
+
+  <p>Formulario Válido: {{this.pessoaForm.valid}}</p>
+  <p>Form Values: {{this.pessoaForm.value | json}}</p>
+  <p>Nome: {{this.nome.value}}</p>
+  <p>Email: {{this.email.value}}</p>
+  <p>Rua: {{this.rua.value}}</p>
+  <p>Numero: {{this.numero.value}}</p>
+</form>

@@ -1,0 +1,14 @@
+<form [formGroup]="musicasForm">
+  <button (click)="adicionarMusica()">Adicionar</button>
+  <div formArrayName="musicas">
+    <div *ngFor="let musica of musicas.controls; let i = index">
+      <label [for]="'musica_'+i"></label>
+      <input type="text" [id]="'musica_'+i" [formControlName]="i">
+      <button (click)="removerMusica(i)">Remover</button>
+    </div>
+  </div>
+
+  <p>FormMusicas Valido: {{musicasForm.valid}}</p>
+  <p>FormArray Valido: {{musicas.valid}}</p>
+  <p>Values: {{musicasForm.valueChanges | async | json}}</p>
+</form>
