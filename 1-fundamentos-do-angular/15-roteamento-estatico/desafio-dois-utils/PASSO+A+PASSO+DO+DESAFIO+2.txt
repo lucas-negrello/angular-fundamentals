@@ -1,0 +1,17 @@
+PASSO A PASSO DO DESAFIO 2
+
+=====> 1 - Criar o projeto com o nome "2-desafio-plataforma-usuario"
+
+=====> 2 - Criar a pasta "images" dentro da pasta "assets" e colar a imagem de background "background-waves-min.jpg"
+
+=====> 3 - Baixar o arquivo "estilos-desafio-2.txt" e adicionar todo o código CSS dentro do arquivo "styles.scss"
+
+=====> 4 - Adicionar a tag de <link> de ícones do Google dentro da tag de <head> no arquivo "index.html"
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+=====> 5 - Remover o template padrão do Angular no "app.component.html"
+
+=====> 6 - Baixar o arquivo "html-desafio-2.txt" e adicionar o código HTML no "app.component.html"
+

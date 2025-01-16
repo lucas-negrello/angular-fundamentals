@@ -1,0 +1,52 @@
+<div class="menu">
+  <div class="menu__item"
+       routerLink="/">
+    <a
+      #initRLA="routerLinkActive"
+      class="menu__link"
+      routerLinkActive="menu__link--selected"
+      [routerLinkActiveOptions]="{exact: true}"
+    >Início</a>
+  </div>
+  <div class="menu__item"
+       [routerLink]="logoutRLA.isActive ? null : '/informations'"
+  >
+    <a
+      class="menu__link"
+      routerLinkActive="menu__link--selected"
+      [ngClass]="{'menu__link--disabled': logoutRLA.isActive}"
+    >Informações</a>
+  </div>
+  <div class="menu__item"
+       [routerLink]="logoutRLA.isActive ? null : '/contacts'"
+  >
+    <a
+      class="menu__link"
+      routerLinkActive="menu__link--selected"
+      [ngClass]="{'menu__link--disabled': logoutRLA.isActive}"
+    >Contatos</a>
+  </div>
+  <div class="menu__item"
+       [routerLink]="logoutRLA.isActive ? null : '/about'"
+  >
+    <a
+      class="menu__link"
+      routerLinkActive="menu__link--selected"
+      [ngClass]="{'menu__link--disabled': logoutRLA.isActive}"
+    >Sobre</a>
+  </div>
+  <div class="menu__item"
+       routerLink="/logout">
+    <a
+      #logoutRLA="routerLinkActive"
+      class="menu__link"
+      routerLinkActive="menu__link--selected"
+    >Sair</a>
+  </div>
+</div>
+
+@if (initRLA.isActive){
+  <p>Nenhuma rota está ativa</p>
+}
+
+<router-outlet></router-outlet>

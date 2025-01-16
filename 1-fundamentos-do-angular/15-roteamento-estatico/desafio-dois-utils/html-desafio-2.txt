@@ -1,0 +1,284 @@
+<div class="container">
+  <div class="card">
+    <div class="card__side-menu">
+      <div class="menu__item">
+        <span class="material-symbols-outlined menu__item-icon">
+          home
+        </span>
+        Início
+      </div>
+      <div class="menu__item menu__item--selected">
+        <span class="material-symbols-outlined menu__item-icon">
+          person
+        </span>
+        Geral
+      </div>
+      <div class="menu__item">
+        <span class="material-symbols-outlined menu__item-icon">
+          credit_card
+        </span>
+        Transações
+      </div>
+    </div>
+    <div class="card__content">
+      <!-- ================= Página de Início ================= -->
+      <!-- <div class="start">
+        <div class="start__card">
+          <p class="start__card-title">Informações Gerais</p>
+          <p class="start__card-text">Você terá acesso as suas informações cadastrais.</p>
+          <button class="start__card-button">Acessar</button>
+        </div>
+        <div class="start__card">
+          <p class="start__card-title">Informações dos Cartões</p>
+          <p class="start__card-text">Você terá acesso as informações dos seus cartões de débito e crédito.</p>
+          <button class="start__card-button">Acessar</button>
+        </div>
+      </div> -->
+      
+      
+      <!-- ================= Página de General ================= -->
+      <!-- <div class="general"> -->
+        <!-- <div class="general__menu">
+          <div class="general__menu-item general__menu-item--selected">
+            Básica
+          </div>
+          <div class="general__menu-item">
+            Contato
+          </div>
+          <div class="general__menu-item">
+            Endereço
+          </div>
+        </div> -->
+        <!-- <div class="general__content"> -->
+	<!-- Básica -->
+        <!-- <div class="general__informations">
+          <div class="general__user-item">
+            <span class="general__item-title">Nome: </span>
+            <span class="general__item-value">Felipe da Silva Freitas</span>
+          </div>
+          <div class="general__divider"></div>
+          <div class="general__user-item">
+            <span class="general__item-title">Data de Nascimento: </span>
+            <span class="general__item-value">14/01/1997</span>
+          </div>
+          <div class="general__divider"></div>
+          <div class="general__user-item">
+            <span class="general__item-title">Gênero: </span>
+            <span class="general__item-value">Masculino</span>
+          </div>
+          <div class="general__divider"></div>
+          <div class="general__user-item">
+            <span class="general__item-title">Nacionalidade: </span>
+            <span class="general__item-value">Brasileira</span>
+          </div>
+        </div> -->
+
+        <!-- Contato -->
+        <!-- <div class="general__informations">
+          <div class="general__user-item">
+            <span class="general__item-title">Email: </span>
+            <span class="general__item-value">{{'felipe@hotmail.com'}}</span>
+          </div>
+          <div class="general__divider"></div>
+          <div class="general__user-item">
+            <span class="general__item-title">Telefone: </span>
+            <span class="general__item-value">(11) 91234-5678</span>
+          </div>
+        </div> -->
+
+        <!-- Endereço -->
+        <!-- <div class="general__informations">
+          <div class="general__user-item">
+            <span class="general__item-title">Residencial: </span>
+            <span class="general__item-value">Rua Oscar Freire 000 - SP</span>
+          </div>
+          <div class="general__divider"></div>
+          <div class="general__user-item">
+            <span class="general__item-title">Trabalho: </span>
+            <span class="general__item-value">Avenida 9 de Julho 000 - SP</span>
+          </div>
+        </div> -->
+	<!-- </div> -->
+      <!-- </div> -->
+
+      
+      <!-- ================= Página de Transações ================= -->
+      <!-- <div class="transactions"> -->
+        <!-- <div class="transactions__cards-container">
+          <div class="card-group-left card-group-left--selected">
+            <div class="card card--credit">
+              <div class="logo"><img src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/Visa-Logo-PNG-Image.png" alt="Visa"></div>
+              <div class="chip"><img src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/chip.png" alt="chip"></div>
+              <div class="number">1234 5678 9012 3456</div>
+              <div class="name">SHOUNAK DAS</div>
+              <div class="from">10/19</div>
+              <div class="to">06/21</div>
+              <div class="ring"></div>
+            </div>
+          </div>
+  
+          <div class="card-group-right">
+            <div class="card card--debit">
+              <div class="logo"><img src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/Visa-Logo-PNG-Image.png" alt="Visa"></div>
+              <div class="chip"><img src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/chip.png" alt="chip"></div>
+              <div class="number">1234 5678 9012 3456</div>
+              <div class="name">SHOUNAK DAS</div>
+              <div class="from">10/19</div>
+              <div class="to">06/21</div>
+              <div class="ring"></div>
+            </div>
+          </div>
+        </div> -->
+	<!-- <div class="transactions__content"> -->
+	<!-- Crédito -->
+        <!-- <div class="transactions__items-container">
+          <div class="transactions__items-group">
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--green"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Laura dos Santos</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>12/03/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>R$40,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--green"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Fábio Oliveira</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>10/03/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>R$60,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--green"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Caio da Silva</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>12/02/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>R$100,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--green"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Bruno Alves</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>02/02/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>R$10,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--green"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Juliana Medeiros</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>05/01/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>R$15,50</span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- Débito -->
+        <!-- <div class="transactions__items-container">
+          <div class="transactions__items-group">
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--red"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Laura dos Santos</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>12/03/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>- R$40,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--red"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Fábio Oliveira</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>10/03/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>- R$60,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--red"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Caio da Silva</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>12/02/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>- R$100,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--red"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Bruno Alves</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>02/02/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>- R$10,00</span>
+              </div>
+            </div>
+            <div class="transactions__divider"></div>
+            <div class="transactions__item">
+              <span class="transactions__item-dot transactions__item-dot--red"></span>
+              <div class="transactions__item-info transactions__item-info--left">
+                <span>Juliana Medeiros</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--center">
+                <span>05/01/2024</span>
+              </div>
+              <div class="transactions__item-info transactions__item-info--right">
+                <span>- R$15,50</span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+	<!-- </div> -->
+      <!-- </div> -->
+
+      <!-- ================= Página Not Found ================= -->
+      <div class="not-found">
+        <h1 class="not-found__code">404</h1>
+        <p class="not-found__message">Ops, a página que você procura não foi encontrada.</p>
+        <button class="not-found__button">Ir para o Início</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>

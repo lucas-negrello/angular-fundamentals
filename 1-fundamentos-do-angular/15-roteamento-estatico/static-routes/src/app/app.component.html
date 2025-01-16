@@ -1,0 +1,39 @@
+<div class="menu">
+  <div
+    #initialRLA="routerLinkActive"
+    class="menu__item"
+    routerLinkActive="menu__item--selected"
+    [routerLinkActiveOptions]="{exact: true}"
+  >
+    <a routerLink="/" class="menu__link">Initial</a>
+  </div>
+  <div
+    #baseRLA="routerLinkActive"
+    class="menu__item"
+    routerLinkActive="menu__item--selected"
+    [routerLinkActiveOptions]="{exact: true}"
+  >
+    <a routerLink="/componentes" class="menu__link">Base</a>
+  </div>
+  <div
+    #primeiroRLA="routerLinkActive"
+    class="menu__item"
+    routerLinkActive="menu__item--selected"
+    [routerLinkActiveOptions]="{exact: true}"
+  >
+    <a routerLink="/componentes/primeiro" class="menu__link">Primeiro</a>
+  </div>
+  <div
+    #segundoRLA="routerLinkActive"
+    class="menu__item"
+    routerLinkActive="menu__item--selected"
+    [routerLinkActiveOptions]="{exact: true}"
+  >
+    <a routerLink="/componentes/segundo" class="menu__link">Segundo</a>
+  </div>
+</div>
+Initial ativo? {{ initialRLA.isActive }} <br>
+Base ativo? {{ baseRLA.isActive }} <br>
+Primeiro ativo? {{ primeiroRLA.isActive }} <br>
+Segundo ativo? {{ segundoRLA.isActive }} <br>
+<router-outlet></router-outlet>

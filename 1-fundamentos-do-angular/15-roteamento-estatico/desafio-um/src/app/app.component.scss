@@ -1,0 +1,35 @@
+
+.menu {
+  background-color: #333;
+  display: flex;
+
+  &__item {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &__link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover:not(&--selected):not(&--disabled) {
+      background-color: #575757;
+      color: #fff;
+    }
+
+    &--selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    &--disabled {
+      background-color: #6a6a6a99;
+      color: rgba(169, 169, 169, 0.584);
+    }
+  }
+}
