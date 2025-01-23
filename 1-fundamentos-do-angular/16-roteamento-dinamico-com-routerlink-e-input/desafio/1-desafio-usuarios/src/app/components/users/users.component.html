@@ -1,0 +1,9 @@
+<h1>Lista de Usuários</h1>
+
+@for (user of users$ | async; track user){
+  <div style="display: flex; flex-direction: column; margin-bottom: 10px; cursor: pointer;" [routerLink]="['/user', user.id]">
+    <div><b>Id: </b><span>{{user.id}}</span></div>
+    <div><b>Name: </b><span>{{user.name}}</span></div>
+    <div><b>Username: </b><span>{{user.username}}</span></div>
+  </div>
+}

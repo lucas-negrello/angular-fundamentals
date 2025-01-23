@@ -1,0 +1,11 @@
+<div style="display: flex; flex-direction: column;">
+  <div>
+    @for (comment of commentsList$ | async; track comment){
+      <div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+        <div><b>Id: </b><span>{{comment.id}}</span></div>
+        <div><b>Name: </b><span>{{comment.name}}</span></div>
+        <div><b>Body: </b><span>{{comment.body}}</span></div>
+      </div>
+    }
+  </div>
+</div>

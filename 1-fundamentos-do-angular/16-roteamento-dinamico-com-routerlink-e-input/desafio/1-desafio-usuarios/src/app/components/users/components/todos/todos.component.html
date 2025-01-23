@@ -1,0 +1,6 @@
+@for (todo of todosList$ | async; track todo){
+  <div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+    <div><b>Title: </b><span>{{todo.title}}</span></div>
+    <div><b>Status: </b><span>{{todo.completed}}</span></div>
+  </div>
+}

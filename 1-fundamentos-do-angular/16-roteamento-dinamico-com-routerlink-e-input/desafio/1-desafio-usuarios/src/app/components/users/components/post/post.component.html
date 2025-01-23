@@ -1,0 +1,12 @@
+<div style="display: flex; flex-direction: column;">
+  <div style="margin-bottom: 20px;">
+    <div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+      <div><b>Id: </b><span>{{post.id}}</span></div>
+      <div><b>Title: </b><span>{{post.title}}</span></div>
+      <div><b>Body: </b><span>{{post.body}}</span></div>
+    </div>
+  </div>
+  <button routerLink="comments">Show Comments</button>
+</div>
+
+<router-outlet></router-outlet>

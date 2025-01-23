@@ -1,0 +1,13 @@
+<div style="display: flex; flex-direction: column">
+  <div style="height: 20%; align-items: start">
+    <router-outlet></router-outlet>
+  </div>
+  <div style="height: 80%;">
+    @for (post of postsList$ | async; track post) {
+        <div style="padding: 10px; cursor: pointer;" [routerLink]="[post.id]">
+          <div>Title: {{ post.title }}</div>
+          <div>Content: {{ post.body }}</div>
+        </div>
+    }
+  </div>
+</div>

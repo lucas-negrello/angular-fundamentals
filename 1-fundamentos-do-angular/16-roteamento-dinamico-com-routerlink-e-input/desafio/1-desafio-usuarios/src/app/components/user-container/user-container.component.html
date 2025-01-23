@@ -1,0 +1,17 @@
+<div style="
+  display: flex;
+  flex-direction: column;
+">
+  <div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+    <div><b>Id: </b><span>{{user.id}}</span></div>
+    <div><b>Name: </b><span>{{user.name}}</span></div>
+    <div><b>Username: </b><span>{{user.username}}</span></div>
+  </div>
+  <div style="display: flex; justify-content: space-around; margin-bottom: 30px;">
+    <a routerLink="/">Users</a>
+    <a [routerLink]="['todos']">Todos</a>
+    <a [routerLink]="['albums']">Albums</a>
+    <a [routerLink]="['posts']">Posts</a>
+  </div>
+  <router-outlet></router-outlet>
+</div>

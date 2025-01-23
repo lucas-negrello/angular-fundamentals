@@ -1,0 +1,6 @@
+@for (album of albumsList$ | async; track album){
+  <div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+    <div><b>Id: </b><span>{{album.id}}</span></div>
+    <div><b>Title: </b><span>{{album.title}}</span></div>
+  </div>
+}

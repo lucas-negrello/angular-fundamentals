@@ -1,0 +1,21 @@
+<button routerLink="/comp1" [queryParams]="{nome: 'Lucas', idade: 27}">
+  Redirecionar Lucas
+</button>
+<button routerLink="/comp1" [queryParams]="{nome: 'Teste', idade: 99}">
+  Redirecionar Teste
+</button>
+<br>
+<button routerLink="/comp1">
+  Redirecionar Sem Preservar Query Params
+</button>
+<button routerLink="/comp1-2" queryParamsHandling="preserve">
+  Redirecionar Preservando Query Params
+</button>
+<br>
+<button routerLink="/comp1-3" [queryParams]="{status: 'ativo'}" queryParamsHandling="merge">
+  Redirecionar Fazendo Merge de Query Params
+</button>
+<br><br>
+<button routerLink="/generic-user">Generic User</button>
+<button routerLink="/generic-admin">Generic Admin</button>
+<router-outlet></router-outlet>

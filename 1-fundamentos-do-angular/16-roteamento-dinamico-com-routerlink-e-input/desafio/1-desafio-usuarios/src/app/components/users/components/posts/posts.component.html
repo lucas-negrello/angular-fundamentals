@@ -1,0 +1,7 @@
+@for (post of postsList$ | async; track post){
+  <div style="display: flex; flex-direction: column; margin-bottom: 10px; cursor: pointer;" [routerLink]="['../post', post.id]">
+    <div><b>Id: </b><span>{{post.id}}</span></div>
+    <div><b>Title: </b><span>{{post.title}}</span></div>
+    <div><b>Body: </b><span>{{post.body}}</span></div>
+  </div>
+}
