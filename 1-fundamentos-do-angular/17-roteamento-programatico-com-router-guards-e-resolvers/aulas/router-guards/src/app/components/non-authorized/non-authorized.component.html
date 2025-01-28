@@ -1,0 +1,15 @@
+<div class="not-authorized">
+  <div class="not-authorized__container">
+    <div class="not-authorized__content">
+      @if(data$ | async; as data){
+        @if (data['type'] === 'non-authorized') {
+          <h2 class="poppins-semibold">Você não tem permissão para acessar essa página.</h2>
+        }
+        @if (data['type'] === 'not-found') {
+          <h2 class="poppins-semibold">Página não encontrada =(</h2>
+        }
+      }
+      <button routerLink="/dashboard" class="poppins-regular not-authorized__button">Voltar</button>
+    </div>
+  </div>
+</div>

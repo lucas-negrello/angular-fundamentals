@@ -1,0 +1,17 @@
+<!--<div class="menu" style="margin: 10px;">-->
+<!--  <div class="menu__item">-->
+<!--    <a class="menu__link" (click)="redirectCredit()">-->
+<!--      Crédito-->
+<!--    </a>-->
+<!--  </div>-->
+<!--</div>-->
+<div>
+  <h2>Cartoes de Débito</h2>
+
+  @for (card of userDebitCardList | async; track card) {
+    <div style="cursor: pointer;" (click)="goToCard(card.id)">
+      <p>Id: {{ card.id }}</p>
+      <p>Number: {{ card.numero }}</p>
+    </div>
+    }
+</div>

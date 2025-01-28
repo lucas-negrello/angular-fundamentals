@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.menu {
+  background-color: #333;
+  display: flex;
+
+  &__item {
+    margin: 0;
+    padding: 0;
+
+    &--selected .menu__link {
+      background-color: #4CAF50;
+      color: white;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #575757;
+      color: #fff;
+    }
+  }
+}
