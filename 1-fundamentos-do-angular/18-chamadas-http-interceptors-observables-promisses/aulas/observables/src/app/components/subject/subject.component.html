@@ -1,0 +1,8 @@
+<button (click)="dispararObs(1)">Enviar 1</button>
+<button (click)="dispararObs(2)">Enviar 2</button>
+<button (click)="dispararObs(3)">Enviar 3</button>
+<button (click)="showConsumidor = true">Show Consumidor</button>
+
+@if (showConsumidor) {
+  <app-consumidor></app-consumidor>
+}
