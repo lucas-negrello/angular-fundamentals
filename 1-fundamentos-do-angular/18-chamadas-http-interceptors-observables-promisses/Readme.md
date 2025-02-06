@@ -190,6 +190,9 @@
   }
 ```
 
+- ***Operador `tap`:***
+  - Não modifica o fluxo de dados, apenas usado para logar dados.
+
 ### Utilizando `Subject` e `BehaviorSubject`:
 
 - Ambos são instanciado apenas uma vez, e cada vez que são chamados, são chamados a partir de sua instância inicial.
@@ -502,3 +505,158 @@ class PromisesService {
   }
 }
 ```
+
+## HTTP
+
+### Maneira correta de manipular Headers:
+
+- Use a classe `HttpHeaders()`.
+- Ela cria apenas uma instância do header, lidando com concatenações, etc.
+- Ex.:
+
+```ts
+import {inject, Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {map, Observable} from "rxjs";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UpdateUserService {
+  private readonly _httpClient = inject(HttpClient);
+
+  public updateUser(userInfos: {
+    username: string,
+    password: string,
+    email: string,
+    name: string
+  }): Observable<{ message: string, token: string }> {
+      
+      // INSTANCIANDO A CLASSE HEADERS, TEMOS ACESSO A TODOS MÉTODOS DELE.
+      
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')!);
+        
+    return this._httpClient.put<{ message: string, token:string }>(
+        `http://localhost:3000/update-user`, 
+        userInfos, 
+        {
+            // AQUI ADICIONAMOS OS HEADERS DA REQUEST
+            headers
+        }).pipe(
+      map((response) => {
+        localStorage.setItem('token', response.token);
+        return response;
+      })
+    );
+  }
+}
+```
+
+- A classe `HttpHeaders()` possui os seguintes métodos:
+  - `.set()`: Inclui no cabeçalho algum valor. Caso já exista uma chave com aquele
+    valor no cabeçalho, ele sobrescreve.
+  - `.append()`: Inclui no cabeçalho algum valor. Caso já existe uma chave com aquele
+    valor no cabeçalho, ele concatena com uma `,`.
+  - `.delete()`: Deleta algum valor do cabeçalho.
+  - `.get()`: Pega o primeiro valor de uma key do cabeçalho.
+  - `.getAll()`: Pega todos valores de uma key do cabeçalho.
+  - `.has()`: Verifica se um valor existe no cabeçalho.
+  - `.keys()`: Retorna todas chaves do cabeçalho.
+  - 
+### Ciclo de vida da HttpRequest no Angular:
+
+- Entre o envio da Request e o recebimento da Response, existem outras mensagens
+  trocadas pelo navegador e a API.
+- Pode ser configurado o HttpClient para capturar estes eventos intermediarios,
+  utilizando o HttpEvent.
+- Configurando no parametro options da request:
+  <br><br>
+  - `observe: 'body'`: retorna diretamente o body do response, independente
+    do parametro `reportProgress` ser `true` ou `false`
+    <br><br>
+  - `observe: 'response'`: retorna apenas a instância de HttpResponse, independente
+    do parametro `reportProgress` ser `true` ou `false`.
+    - HttpResponse possui parametros como:
+      - body;
+      - headers;
+      - ok;
+      - status;
+      - statusText;
+      - type;
+      - url;
+        <br><br>
+  - `observe: 'events'`:
+    - `reportProgress: false`: Recebe 2 eventos:
+      1. `type: 0`: Indica que a requisição foi enviada, mas não existe resposta
+      2. `HttpResponse`: É o evento que contem um elemento HttpResponse, todos seus parametros.
+  - `observe: 'events'`:
+    - `reportProgress: true`: Rececbe 5 eventos:
+      1. `type: 0`: Indica que a requisição foi enviada, mas nao existe resposta.
+      2. `type: 1`: Indica o progresso de upload. Indica tambem quantos 
+        bytes foram enviados e o total de bytes que deveriam ser enviados. Este evento pode ser disparado
+        várias vezes conforme dados maiores. Pode ser usado para gerar barras de progresso. Só é realizado nos metodos POST.
+      3. `HttpHeaderResponse`: É o evento que contem um elemento HttpHeaderResponse, que contem
+        todas as propriedades do HttpResponse, menos o body. Útil para acessar e analizar
+        os cabeçalhos antes de carregar o body.
+      4. `type: 3`: Indica o progresso de download. Indica tambem quantos
+         bytes foram enviados e o total de bytes que deveriam ser enviados. Este evento pode ser disparado
+         várias vezes conforme dados maiores. Pode ser usado para gerar barras de progresso.
+      5. `HttpResponse`: É o evento que contem um elemento HttpResponse, todos seus parametros.
+      6. `HttpEventType.User`: É um evento reservado para eventos personalizados, que podem
+        ser disparados por interceptors ou backends personalizados. É uma maneira de
+        gerar e manipular eventos arbitrários durante o ciclo de vida da requisição.
+        Não é emitido automaticamente, deve ser gerado programaticamente por desenvolvedores.
+
+## Interceptors
+
+- São chamados após as requisições, antes de chegar no Backend.
+- Pode redirecionar para outros interceptors, fazer um retry, tratar erros
+  de forma global, ...
+- Ex.:
+
+```ts
+  import {HttpContextToken, HttpEvent, HttpHandlerFn, HttpHeaders, HttpRequest} from "@angular/common/http";
+  import {Observable} from "rxjs";
+  
+  export const AUTH_TOKEN_ENABLED = new HttpContextToken<boolean>(() => true);
+  export function authInterceptor(
+    req: HttpRequest<unknown>,
+    next: HttpHandlerFn): Observable<HttpEvent<unknown>>
+  {
+  
+    const APPLY_AUTH_TOKEN = req.context.get(AUTH_TOKEN_ENABLED);
+  
+    let newReq = req;
+  
+    if(APPLY_AUTH_TOKEN){
+      newReq = req.clone({
+        headers: req.headers.set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+      });
+    }
+  
+    return next(newReq)
+  }
+```
+
+- Nunca podemos modificar diretamente a requisição. Sempre devemos fazer um clone.
+- Se usarmos um `.pipe()` no next(), recebemos, por padrão, o HttpResponse com seus metodos e props.
+- O `.pipe()` do interceptor é sempre realizado antes do `.pipe()` da implementação.
+- Dependendo da configuração de `reportEvent`, pode retornar os outros passos da requisição.
+- Para isto, `reportEvent` deve ser `true`. Esta configuração deve ser feita na implementação 
+  do serviço, não no interceptor.
+- Para pegar todos eventos tanto no interceptor quanto na implementação, devemos colocar
+  a opção `observe: 'events'`, que irá carregar todos eventos na seguinte ordem:
+  1. Interceptor
+  2. Service
+  3. Implementação
+- Caso nao vá retornar uma response, vá passar para outro interceptor, ele não executa o seu `.pipe`.
+- Podemos tratar erros das seguintes maneiras:
+  - ***Operador catchError:***
+    - Caso exista no `.pipe`, cairá primeiro no catchError do Interceptor, após no do Service e 
+      após no da implementação, podendo ser tratado em qualquer um deles.
+    - O operador `catchError` deve retornar um observable, podendo ser de erro ou de sucesso.
+    - Caso retornarmos um `of()`, retornaremos um observable sucesso.
+    - Caso retornarmos um `throwError()`, retornaremos um observable de erro.
+  - ***throwError:***
+    - Podemos parar a requisição a qualquer momento usando a função `throwError()`,
+      que irá lançar um erro que pode ser pego através do `catchError`.

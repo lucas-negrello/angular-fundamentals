@@ -1,0 +1,8 @@
+<router-outlet></router-outlet>
+
+@if (_loadingService.loading$ | async) {
+  <div class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+}
+
